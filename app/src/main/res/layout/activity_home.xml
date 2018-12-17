@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@drawable/home"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/logo"
+                android:layout_marginLeft="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="YOUR WAY TO EVERYWHERE"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="-12dp"
+                android:textSize="10sp"
+                android:textColor="@color/colorGreyLight"/>
+            <ImageView
+                android:layout_width="350dp"
+                android:layout_height="265dp"
+                android:layout_marginTop="-10dp"
+                android:layout_marginRight="-60dp"
+                android:src="@drawable/avatar"
+                android:layout_gravity="right"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120dp">
+
+                <ImageView
+                    android:id="@+id/metro_yellow"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/metro_yellow"/>
+
+                <TextView
+                    android:id="@+id/balance_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Balance"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="36sp"/>
+
+                <TextView
+                    android:id="@+id/balance_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/balance_label"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="#fcaf17"
+                    android:textSize="56sp"
+                    android:text="0 p"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/metro_yellow"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="24sp"
+                    android:text="0 Rides"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/balance_value"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:textColor="#124e58"
+                    android:background="#fcaf17"
+                    android:textSize="24sp"
+                    android:drawableRight="@drawable/ic_chevron_right_black_24dp"
+                    android:text="ADD BALANCE"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
