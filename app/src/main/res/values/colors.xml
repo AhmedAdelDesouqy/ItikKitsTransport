@@ -8,5 +8,9 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorTransparent">#00000000</color>
-    <color name="color_cell_background_selected">#88093133</color>
+    <color name="color_cell_background_selected">#990b4b4f</color>
+    <color name="color_caption_unselected">#2e8b97</color>
+    <color name="color_caption_selected">#ffa621</color>
+    <color name="button_color_enabled">#fcaf17</color>
+    <color name="button_color_disabled">#aaaaaa</color>
 </resources>

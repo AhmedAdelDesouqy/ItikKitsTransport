@@ -13,7 +13,6 @@
 
         <activity android:name=".HomeActivity"
             android:screenOrientation="portrait">
-
         </activity>
 
         <activity
@@ -26,7 +25,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SelectRechargingAmountActivity"/>
+        <activity android:name=".SelectRechargingAmountActivity"
+                  android:screenOrientation="portrait"/>
+
+        <activity android:name=".PaymentActivity"
+                  android:screenOrientation="portrait"/>
 
     </application>
 
