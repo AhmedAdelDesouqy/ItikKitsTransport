@@ -44,8 +44,9 @@
                     android:layout_height="wrap_content"
                     android:text="YOUR WAY TO EVERYWHERE"
                     android:layout_marginTop="-12dp"
+                    android:fontFamily="@font/lato_light"
                     android:textSize="10sp"
-                    android:textColor="@color/colorGreyLight"/>
+                    android:textColor="@color/colorWhite"/>
                 
             </LinearLayout>
             
@@ -64,7 +65,8 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="-180dp"
             android:textSize="20sp"
-            android:textColor="#16555a"
+            android:fontFamily="@font/nexa_light"
+            android:textColor="#2299a4"
             android:text="Welcome,"/>
         <TextView
             android:layout_width="wrap_content"
@@ -72,6 +74,7 @@
             android:layout_marginLeft="75dp"
             android:layout_marginTop="-10dp"
             android:textSize="28sp"
+            android:fontFamily="@font/nexa_light"
             android:textColor="@color/colorWhite"
             android:text="Alex"/>
 
@@ -117,6 +120,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="#2e8b97"
                         android:textSize="32sp"
+                        android:fontFamily="@font/nexa_light"
                         android:text="25 p"/>
                 </LinearLayout>
                 
@@ -157,6 +161,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="28sp"
+                        android:fontFamily="@font/nexa_light"
                         android:textColor="@color/color_caption_selected"
                         android:text="750 p"/>
 
@@ -166,6 +171,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
                         android:layout_marginLeft="20dp"
+                        android:fontFamily="@font/nexa_light"
                         android:textColor="@color/color_caption_selected"
                         android:text="50 Rides"/>
 
@@ -207,6 +213,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="28sp"
+                        android:fontFamily="@font/nexa_light"
                         android:textColor="@color/color_caption_unselected"
                         android:text="750 p"/>
 
@@ -215,6 +222,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
+                        android:fontFamily="@font/nexa_light"
                         android:layout_marginLeft="20dp"
                         android:textColor="@color/color_caption_unselected"
                         android:text="50 Rides"/>
@@ -264,6 +272,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="28sp"
+                        android:fontFamily="@font/nexa_light"
                         android:textColor="@color/color_caption_unselected"
                         android:text="1250 p"/>
 
@@ -273,6 +282,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
                         android:layout_marginLeft="36dp"
+                        android:fontFamily="@font/nexa_light"
                         android:textColor="@color/color_caption_unselected"
                         android:text="50 Rides"/>
 
@@ -289,6 +299,7 @@
                 android:textColor="#124e58"
                 android:background="#fcaf17"
                 android:textSize="24sp"
+                android:fontFamily="@font/nexa_bold"
                 android:drawableRight="@drawable/ic_chevron_right_black_24dp"
                 android:text="PAY"/>
 
