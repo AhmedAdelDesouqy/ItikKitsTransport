@@ -168,7 +168,7 @@
                 android:paddingRight="10dp"
                 android:paddingTop="3dp"
                 android:paddingBottom="3dp"
-                android:textColor="@color/colorGreylight"
+                android:textColor="@color/colorGreyLight"
                 android:text="Card No."/>
 
             <EditText
@@ -212,7 +212,7 @@
                 android:fontFamily="@font/nexa_light"
                 android:paddingTop="3dp"
                 android:paddingBottom="3dp"
-                android:textColor="@color/colorGreylight"
+                android:textColor="@color/colorGreyLight"
                 android:text="Expiry Date"/>
             <EditText
                 android:id="@+id/expiry_date"
@@ -255,7 +255,7 @@
                 android:paddingTop="3dp"
                 android:paddingBottom="3dp"
                 android:fontFamily="@font/nexa_light"
-                android:textColor="@color/colorGreylight"
+                android:textColor="@color/colorGreyLight"
                 android:text="Security Code"/>
             <EditText
                 android:id="@+id/security_code"
@@ -303,7 +303,7 @@
                 android:layout_marginLeft="10dp"
                 android:text="Save Card Information"
                 android:fontFamily="@font/nexa_light"
-                android:textColor="@color/colorGreylight"
+                android:textColor="@color/colorGreyLight"
                 android:textSize="16sp"/>
             
         </LinearLayout>
