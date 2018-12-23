@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * * Created by Ahmed Adel Al-Desouqy on 15-Dec-18.
@@ -39,11 +40,51 @@ public class HomeActivity extends Activity {
             if(recharged) {
                 userBalance += 750;
                 updateUserBalanceInSharedPreferences(userBalance);
+                addBalanceButton.setEnabled(false);
+                addBalanceButton.setBackgroundColor(getResources().getColor(R.color.button_color_disabled));
             }
+        }
+
+        if(userBalance == 0) {
+            addBalanceButton.setEnabled(true);
+            addBalanceButton.setBackgroundColor(getResources().getColor(R.color.button_color_enabled));
+        } else {
+            addBalanceButton.setEnabled(false);
+            addBalanceButton.setBackgroundColor(getResources().getColor(R.color.button_color_disabled));
         }
 
         balanceValue.setText(userBalance + " p");
         remainingRidesValue.setText(userBalance/15 + " Rides");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Intent intent = getIntent();
+        if (intent != null && NfcHelper.isOurTagConnected(intent)) {
+            subtractOneRideFromUserCredit();
+        }
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (intent != null && NfcHelper.isOurTagConnected(intent)) {
+            subtractOneRideFromUserCredit();
+        }
+    }
+
+    private void subtractOneRideFromUserCredit() {
+        int userBalance = getUserBalanceFromSharedPreferences();
+        userBalance -= 15;
+        updateUserBalanceInSharedPreferences(userBalance);
+        Toast.makeText(this, "One ride deducted from your credit", Toast.LENGTH_SHORT).show();
+        balanceValue.setText(userBalance + " p");
+        remainingRidesValue.setText(userBalance/15 + " Rides");
+        if(userBalance == 0) {
+            addBalanceButton.setEnabled(true);
+            addBalanceButton.setBackgroundColor(getResources().getColor(R.color.button_color_enabled));
+        }
     }
 
     private void updateUserBalanceInSharedPreferences(int userBalance) {

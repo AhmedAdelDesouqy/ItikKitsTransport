@@ -42,7 +42,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="YOUR WAY TO EVERYWHERE"
+                    android:text="THE WAY TO EVERYWHERE"
                     android:layout_marginTop="-12dp"
                     android:fontFamily="@font/lato_light"
                     android:textSize="10sp"
@@ -106,6 +106,7 @@
                     android:layout_marginLeft="28dp"
                     android:textColor="#2e8b97"
                     android:textSize="30sp"
+                    android:fontFamily="@font/nexa_light"
                     android:text="ONE TIME"/>
 
                 <LinearLayout
