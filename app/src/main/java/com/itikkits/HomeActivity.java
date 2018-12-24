@@ -31,10 +31,20 @@ public class HomeActivity extends Activity {
                 navigateToRechargingOptions();
             }
         });
+    }
 
-        int userBalance = getUserBalanceFromSharedPreferences();
-
+    @Override
+    protected void onStart() {
+        super.onStart();
         Intent intent = getIntent();
+
+        // check for nfc intent
+        if (intent != null && NfcHelper.isOurTagConnected(intent)) {
+            subtractOneRideFromUserCredit();
+        }
+
+        // check for recharging intent
+        int userBalance = getUserBalanceFromSharedPreferences();
         if(intent!=null) {
             boolean recharged = intent.getBooleanExtra("recharged", false);
             if(recharged) {
@@ -58,15 +68,6 @@ public class HomeActivity extends Activity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        Intent intent = getIntent();
-        if (intent != null && NfcHelper.isOurTagConnected(intent)) {
-            subtractOneRideFromUserCredit();
-        }
-    }
-
-    @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         if (intent != null && NfcHelper.isOurTagConnected(intent)) {
@@ -76,14 +77,18 @@ public class HomeActivity extends Activity {
 
     private void subtractOneRideFromUserCredit() {
         int userBalance = getUserBalanceFromSharedPreferences();
-        userBalance -= 15;
-        updateUserBalanceInSharedPreferences(userBalance);
-        Toast.makeText(this, "One ride deducted from your credit", Toast.LENGTH_SHORT).show();
-        balanceValue.setText(userBalance + " p");
-        remainingRidesValue.setText(userBalance/15 + " Rides");
-        if(userBalance == 0) {
-            addBalanceButton.setEnabled(true);
-            addBalanceButton.setBackgroundColor(getResources().getColor(R.color.button_color_enabled));
+        if (userBalance != 0) {
+            userBalance -= 15;
+            updateUserBalanceInSharedPreferences(userBalance);
+            Toast.makeText(this, "One ride deducted from your balance", Toast.LENGTH_SHORT).show();
+            balanceValue.setText(userBalance + " p");
+            remainingRidesValue.setText(userBalance/15 + " Rides");
+            if(userBalance == 0) {
+                addBalanceButton.setEnabled(true);
+                addBalanceButton.setBackgroundColor(getResources().getColor(R.color.button_color_enabled));
+            }
+        } else {
+            Toast.makeText(this, "No enough balance. Please recharge", Toast.LENGTH_SHORT).show();
         }
     }
 
