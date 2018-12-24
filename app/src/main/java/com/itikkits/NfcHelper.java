@@ -16,7 +16,7 @@ public class NfcHelper {
 
     public static final String OUR_NDEF_MESSAGE_FINGERPRINT = "itikkits";
 
-    public static boolean isOurTagConnected(Intent intent) {
+    public static ConnectedNfcChipType checkAConnectedNfcChip(Intent intent) {
         if (intent != null && intent.getAction() != null && intent.getAction().equals(NfcAdapter.ACTION_NDEF_DISCOVERED)) {
             NdefRecord[] ndefRecords = readNdefMessageFromNfcTag(intent);
 
@@ -24,13 +24,16 @@ public class NfcHelper {
                 for (NdefRecord ndefRecord : ndefRecords) {
                     String tagNdefMsg = getPlainTextFromNdefRecord(ndefRecord);
                     if(tagNdefMsg != null && tagNdefMsg.equals(OUR_NDEF_MESSAGE_FINGERPRINT)) {
-                        return true;
+                        return ConnectedNfcChipType.SUPPORTED_NFC_CHIP;
                     }
                 }
+                // if the code rached this part and still the method didn't return yet -->
+                // the attached nfc tag doesn't have our NDEF message fingerprint (Unsupported Tag)
+                return ConnectedNfcChipType.CARRYING_AN_UNSUPPORTED_NDEF_MESSAGE_NFC_CHIP;
             }
 
         }
-        return false;
+        return ConnectedNfcChipType.NOT_A_CARRYING_NDEF_MESSAGE_NFC_CHIP;
     }
 
     public static String getPlainTextFromNdefRecord(NdefRecord ndefRecord) {
@@ -75,6 +78,12 @@ public class NfcHelper {
             return intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
         }
         return null;
+    }
+
+    enum ConnectedNfcChipType {
+        NOT_A_CARRYING_NDEF_MESSAGE_NFC_CHIP,
+        CARRYING_AN_UNSUPPORTED_NDEF_MESSAGE_NFC_CHIP,
+        SUPPORTED_NFC_CHIP
     }
 
 }

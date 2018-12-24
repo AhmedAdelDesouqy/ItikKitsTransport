@@ -39,11 +39,13 @@ public class HomeActivity extends Activity {
         Intent intent = getIntent();
 
         // check for nfc intent
-        if (intent != null && NfcHelper.isOurTagConnected(intent)) {
-            subtractOneRideFromUserCredit();
-        }
+        handleNfcIntentIfValid(intent);
 
         // check for recharging intent
+        handleRechargingIntentIfValid(intent);
+    }
+
+    private void handleRechargingIntentIfValid(Intent intent) {
         int userBalance = getUserBalanceFromSharedPreferences();
         if(intent!=null) {
             boolean recharged = intent.getBooleanExtra("recharged", false);
@@ -67,12 +69,22 @@ public class HomeActivity extends Activity {
         remainingRidesValue.setText(userBalance/15 + " Rides");
     }
 
+    private void handleNfcIntentIfValid(Intent intent) {
+        if (intent != null ) {
+            NfcHelper.ConnectedNfcChipType connectedNfcChipType = NfcHelper.checkAConnectedNfcChip(intent);
+            if(connectedNfcChipType == NfcHelper.ConnectedNfcChipType.SUPPORTED_NFC_CHIP)
+                subtractOneRideFromUserCredit();
+            else if (connectedNfcChipType == NfcHelper.ConnectedNfcChipType.CARRYING_AN_UNSUPPORTED_NDEF_MESSAGE_NFC_CHIP) {
+                Toast.makeText(this, "Unsupported Nfc Terminal", Toast.LENGTH_SHORT).show();
+            } // else (no nfc device at all, or nfc device with no NDEF msg -> do nothing
+        }
+    }
+
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (intent != null && NfcHelper.isOurTagConnected(intent)) {
-            subtractOneRideFromUserCredit();
-        }
+        handleNfcIntentIfValid(intent);
+        handleRechargingIntentIfValid(intent);
     }
 
     private void subtractOneRideFromUserCredit() {
