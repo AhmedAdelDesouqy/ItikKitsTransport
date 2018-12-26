@@ -45,10 +45,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="THE WAY TO EVERYWHERE"
+                    android:text="The way to Everywhere"
                     android:layout_marginTop="-12dp"
-                    android:textSize="10sp"
-                    android:fontFamily="@font/lato_light"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/pommel"
                     android:textColor="@color/colorWhite"/>
 
             </LinearLayout>
