@@ -26,10 +26,10 @@
             android:fontFamily="@font/pommel"
             android:textColor="@color/colorWhite"/>
         <ImageView
-            android:layout_width="350dp"
-            android:layout_height="265dp"
-            android:layout_marginTop="-10dp"
-            android:layout_marginRight="-60dp"
+            android:layout_width="360dp"
+            android:layout_height="260dp"
+            android:layout_marginTop="-35dp"
+            android:layout_marginRight="-67dp"
             android:src="@drawable/avatar"
             android:layout_gravity="right"/>
         <TextView
